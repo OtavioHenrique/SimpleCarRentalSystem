@@ -1,39 +1,8 @@
 #include <iostream>
 #include <string>
-//#include "bin/Employee.h"
 #include "bin/AdminDB.h"
 #include "bin/Admin.h"
 
-using namespace std;
-
-	Admin::Admin() {
-	}
-
-	Admin::Admin(string _username, string _password) {
-			setLogin(_username);
-			setPassword(_password);
-	}
-
-	string Admin::getLogin() {
-		return login;
-	}
-
-	string Admin::getPassword() {
-		return password;
-	}
-
-	void Admin::setLogin(string _login) {
-		login = _login;
-	}
-
-	void Admin::setPassword(string _password){
-		password = _password;
-	}
-
-	void Admin::print() {
-		cout << "Login: " << getLogin() << endl;
-		cout << "Password: " << getPassword() << endl;
-	}
 
 	AdminDB::AdminDB(){
 		int i=0;
