@@ -55,6 +55,7 @@ void emploMenu (Employee logged, EmployeeDB *p) { //EMPLOYEE MENU
 	cout << "You're logged with " << logged.getLogin() << " employee account" <<endl;
 	cout << "What do you want?" <<endl;
 	cout<<endl;
+	cout<<endl;
 	cout << "1 - New client account" <<endl;
 	cout << "2 - Delete client account" <<endl;
 	cout << "3 - List of client accounts" <<endl;
@@ -62,6 +63,7 @@ void emploMenu (Employee logged, EmployeeDB *p) { //EMPLOYEE MENU
 	cout << "5 - New car devolution" <<endl;
 	cout << "6 - List of car leased" <<endl;
 	cout << "7 - List of available cars" <<endl;
+	cout << "8 - To register new car" <<endl;
 
 
 	cin >> option;
