@@ -1,14 +1,14 @@
 #include <iostream>
 #include <string>
 using std::string;
-
+#include "Pessoa.h"
 #ifndef EMPLOYEEDB_H 
 #define EMPLOYEEDB_H
 
 #include "Employee.h" 
 using namespace std;
 
-class EmployeeDB {
+class EmployeeDB : public Pessoa {
 	private:
 		Employee *p;
 		int existe (string login){
@@ -23,7 +23,7 @@ class EmployeeDB {
 
 	public:
 		EmployeeDB();
-		int incluir (string, string, string);
+		int incluir (string, string, string, string, string);
 		int excluir (string);
 		Employee Authentication(Employee);
 		void listar();

@@ -1,14 +1,14 @@
 #include <iostream>
 #include <string>
 using std::string;
-
+#include "Pessoa.h"
 #ifndef ADMINDB_H 
 #define ADMINDB_H
 
 #include "Admin.h" 
 using namespace std;
 
-class AdminDB {
+class AdminDB : public Pessoa {
 	private:
 		Admin *p;
 		int existe (string login){
@@ -23,7 +23,7 @@ class AdminDB {
 
 	public:
 		AdminDB();
-		int incluir (string, string);
+		int incluir (string, string, string, string, string);
 		int excluir (string);
 		Admin Authentication(Admin);
 		void listar();

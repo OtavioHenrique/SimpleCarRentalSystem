@@ -4,6 +4,7 @@
 #include "../includes/Admin.h"
 #include "../includes/Employee.h"
 #include "../includes/EmployeeDB.h"
+#include "../includes/Pessoa.h"
 #include <cstdlib>
 
 using namespace std;
@@ -11,9 +12,12 @@ using namespace std;
 Admin::Admin() { //admin empty constructor
 }
 
-Admin::Admin(string _username, string _password) {//admin constructor
+Admin::Admin(string _username, string _password, string _name, string _cpf, string _rg) {//admin constructor
 		setLogin(_username);
 		setPassword(_password);
+		setName(_name);
+		setCpf(_cpf);
+		setRG(_rg);
 }
 
 string Admin::getLogin() { //function to return login
@@ -35,20 +39,36 @@ void Admin::setPassword(string _password){ //function to set password
 void Admin::print() { //Process to print admin account
 	cout << "Login: " << getLogin() << endl;
 	cout << "Password: " << getPassword() << endl;
+	cout << "Name: " << getName() << endl;
+	cout << "CPF: " << getCpf() << endl;
+	cout << "RG: " << getRG() << endl;
 }
 
 
 void askAdmInsert(Admin logged, AdminDB *p){ //Method to create an admin account
 	string Username;
 	string Passowrd;
+	string Name;
+	string Cpf;
+	string RG;
 
 	cout<<"Enter with Username: ";
 	cin>>Username;
 			
 	cout<<"Enter with Passowrd: ";
 	cin>>Passowrd;
+
+	cout<<"Enter with Name: ";
+	cin>>Name;
 			
-	if (p->incluir(Username, Passowrd ) == 1){
+	cout<<"Enter with CPF: "; 
+	cin>>Cpf;
+
+	cout<<"Enter with RG: ";
+	cin>>RG;
+
+			
+	if (p->incluir(Username, Passowrd, Name, Cpf, RG ) == 1){
 		cout<<"Account created"<<endl;
 	}
 	else {
@@ -76,15 +96,19 @@ void askListEmplo(EmployeeDB *p) { //Method to list employee accounts
 }
 
 void admCreateEmplo(EmployeeDB *p){ //Method to create an employee account
-	string password, name, login;
+	string password, name, login, cpf, rg;
 	cout << "Enter with the employee name: ";
 	cin >> name;
+	cout << "Enter with the employee CPF: ";
+	cin >> cpf;
+	cout << "Enter with the employee RG: ";
+	cin >> rg;
 	cout << "Enter with the employee login: ";
 	cin >> login;
 	cout << "Enter with the employee password: ";
 	cin >> password;
 
-	if (p->incluir(login, password, name ) == 1){
+	if (p->incluir(login, password, name, cpf, rg) == 1){
 		cout<<"Account created"<<endl;
 	}
 	else {
@@ -234,7 +258,7 @@ void admLogin(AdminDB *p, EmployeeDB *b){ //Ask for admin login/password and cal
 	cin >> admUser;
 	cout << "Password: ";
 	cin >> admPass; //Depois tentar implementar função para aparecer *
-	Admin aux(admUser,admPass);
+	Admin aux(admUser,admPass, "", "", "");
 	admLoginAuthentication(aux, p, b);
 
 }

@@ -1,7 +1,7 @@
 all: SimpleCarRentalSystem
 
-SimpleCarRentalSystem: Main.o AdminDB.o Employee.o EmployeeDB.o LoginADM.o
-	@g++ Main.o AdminDB.o Employee.o EmployeeDB.o LoginADM.o -o Main
+SimpleCarRentalSystem: Main.o AdminDB.o Employee.o EmployeeDB.o LoginADM.o Pessoa.o
+	@g++ Main.o AdminDB.o Employee.o EmployeeDB.o LoginADM.o Pessoa.o -o Main
 	@echo Compiling..
 
 Main.o: src/Main.cpp
@@ -23,6 +23,10 @@ EmployeeDB.o: src/EmployeeDB.cpp
 LoginADM.o: src/LoginADM.cpp
 	@g++ -c src/LoginADM.cpp
 	@echo Compiling LoginADM.cpp..
+
+Pessoa.o: src/Pessoa.cpp
+	@g++ -c src/Pessoa.cpp
+	@echo Compiling Pessoa.cpp
 
 clean:
 	rm -rf *o SimpleCarRentalSystem

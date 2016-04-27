@@ -2,6 +2,7 @@
 #include <string>
 #include "../includes/EmployeeDB.h"
 #include "../includes/Employee.h"
+#include "../includes/Pessoa.h"
 #include <cstdlib>
 
 using namespace std;
@@ -9,10 +10,12 @@ using namespace std;
 Employee::Employee() { //Employee Empty Constructor
 }
 
-Employee::Employee(string _username, string _password , string _name) { //Employee Constructor
+Employee::Employee(string _username, string _password , string _name, string _CPF, string _RG) { //Employee Constructor
 		setLogin(_username);
 		setPassword(_password);
 		setName(_name);
+		setCpf(_CPF);
+		setRG(_RG);
 }
 
 string Employee::getLogin() { //Get Employee login method
@@ -23,9 +26,6 @@ string Employee::getPassword() { //get employee password method
 	return password;
 }
 
-string Employee::getName() { //get employee name password
-	return name;
-}
 
 void Employee::setLogin(string _login) { //set employee login
 	login = _login;
@@ -35,14 +35,12 @@ void Employee::setPassword(string _password){ //set employee password
 	password = _password;
 }
 
-void Employee::setName(string _name){ //set employee name
-	name = _name;
-}
-
 void Employee::print() { //print employee method
 	cout << "Login: " << getLogin() << endl;
 	cout << "Password: " << getPassword() << endl;
 	cout << "Name: " << getName() <<endl;
+	cout << "CPF: " << getCpf() << endl;
+	cout << "RG: " << getRG() << endl;
 }
 
 void emploMenu (Employee logged, EmployeeDB *p) { //EMPLOYEE MENU
@@ -143,6 +141,6 @@ void employeeLogin (EmployeeDB *p) { //Method to employee login
 	cin >> emploUser;
 	cout << "Password: ";
 	cin >> emploPass; //Depois tentar implementar função para aparecer *
-	Employee aux(emploUser,emploPass, "");
+	Employee aux(emploUser,emploPass, "", "", "");
 	emploLoginAuthentication(aux, p);
 }
