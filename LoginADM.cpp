@@ -114,6 +114,7 @@ void askAdmList(Admin logged, AdminDB *p) { //method to list adm accounts
 void admMenu (Admin logged, AdminDB *p, EmployeeDB *b) { //ADMINISTRATOR MENU
 
 	int option;
+<<<<<<< HEAD
 	int auxiliar;
 	do
 	{
@@ -197,6 +198,49 @@ void admMenu (Admin logged, AdminDB *p, EmployeeDB *b) { //ADMINISTRATOR MENU
 				break;
 		}
 	}while(option != 0);
+=======
+	std::system("clear"); //linux
+	//std::system("cls"); //windows
+	cout <<endl;
+	cout << "Welcome to admin pannel" <<endl;
+	cout << "You're logged with " << logged.getLogin() << " admin account" <<endl;
+	cout << "What do you want?" <<endl;
+	cout<<endl;
+	cout << "1 - Create new admin account" <<endl;
+	cout << "2 - Delete admin account" <<endl;
+	cout << "3 - List admin accounts" <<endl;
+	cout <<endl;
+	cout << "============Employee Accounts Options====================="<<endl;
+	cout <<endl;
+	cout << "4 - List employeers accounts" <<endl;
+	cout << "5 - Create a employee account" <<endl;
+	cout << "6 - Delete a employee account" <<endl;
+	cout << "7 - Return" <<endl;
+
+	cin >> option;
+	
+	switch(option){
+		case 1:
+			askAdmInsert(logged, p);
+			break;
+		case 2:
+			askAdmDel(logged, p);
+			break;
+		case 3:
+			askAdmList(logged, p);
+			break;
+		case 4:
+			askListEmplo(b);
+			break;
+		case 5:
+			admCreateEmplo(b);
+			break;
+		case 6:
+			admDeleteEmplo(b);
+		default:
+			cout << "Please enter with a valid option" <<endl;
+	}
+>>>>>>> 25e4da4ff698ccd96613de3e2d7d9a6a694695b6
 }
 
 void admLoginAuthentication (Admin aux, AdminDB *p , EmployeeDB *b) { //Authenticate administrator login with user inputs
@@ -211,9 +255,12 @@ void admLoginAuthentication (Admin aux, AdminDB *p , EmployeeDB *b) { //Authenti
 		admMenu(autentication, p, b);
 	} else {
 		cout << "Wrong Username/Password" <<endl;
+<<<<<<< HEAD
 		cout<<"\nPress ENTER to continue..."<<endl;
 		cin.ignore();
 		cin.get(); 
+=======
+>>>>>>> 25e4da4ff698ccd96613de3e2d7d9a6a694695b6
 	}	
 }
 
