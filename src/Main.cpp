@@ -8,6 +8,13 @@
 //For first time, log with admin with username = admin, password = 123
 //To compile on GNU/linux systems : g++ Main.cpp AdminDB.cpp Employee.cpp EmployeeDB.cpp LoginADM.cpp -o Main
 
+#ifdef _WIN32
+	#define SISTEMA "cls"
+
+#else
+	#define SISTEMA "clear"
+
+#endif
 
 #include <iostream>
 #include <cstdlib>
@@ -38,11 +45,7 @@ int main(int argc, char** argv) { //Principal menu
 	ClientDB c;
 
 	do {
-		#ifdef OS_WINDOWS
-			std::system("cls"); //windows clean
-		#else
-			std::system("clear"); //linux
-		#endif
+		std::system(SISTEMA);
 		cout <<endl;
 		cout << "Welcome to the Guhtyk Car Rental clerk panel" << endl;
 		cout <<endl;

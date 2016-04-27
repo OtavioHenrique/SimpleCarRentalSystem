@@ -5,6 +5,15 @@
 #include "../includes/ClientDB.h"
 #include <cstdlib>
 
+#ifdef _WIN32
+	#define SISTEMA "cls"
+
+#else
+	#define SISTEMA "clear"
+
+#endif
+
+
 using namespace std;
 
 Employee::Employee() { //Employee Empty Constructor
@@ -52,11 +61,8 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c) { //EMPLOYEE MENU
 	string name, cpf, RG, code;
 	do
 	{
-		#ifdef OS_WINDOWS
-			std::system("cls"); //windows clean
-		#else
-			std::system("clear"); //linux
-		#endif
+		std::system(SISTEMA);
+
 		cout <<endl;
 		cout << "Welcome to Employee pannel" <<endl;
 		cout << "You're logged with " << logged.getLogin() << " employee account" <<endl;
@@ -84,11 +90,7 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c) { //EMPLOYEE MENU
 		{
 			case 1:
 			
-			#ifdef OS_WINDOWS
-				std::system("cls"); //windows clean
-			#else
-				std::system("clear"); //linux
-			#endif
+				std::system(SISTEMA);
 				cout<<"Client name: "<<endl;
 				cin>>name;
 				cout<<"Client cpf: " <<endl;
@@ -109,11 +111,7 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c) { //EMPLOYEE MENU
 				break;
 
 			case 2:
-				#ifdef OS_WINDOWS
-					std::system("cls"); //windows clean
-				#else
-					std::system("clear"); //linux
-				#endif
+				std::system(SISTEMA);
 				cout<<"customer cpf you want to delete: "<<endl;
 				cin>>cpf;
 
@@ -128,11 +126,7 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c) { //EMPLOYEE MENU
 				break;
 
 			case 3:
-				#ifdef OS_WINDOWS
-					std::system("cls"); //windows clean
-				#else
-					std::system("clear"); //linux
-				#endif
+				std::system(SISTEMA);
 
 				c->list();
 				cout<<"\nPress ENTER to continue..."<<endl;
@@ -144,6 +138,7 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c) { //EMPLOYEE MENU
 				break;
 
 			default:
+				std::system(SISTEMA);
 				cout << "Please enter with a valid option" <<endl;
 				cout<<"\nPress ENTER to continue..."<<endl;
 				cin.ignore();
@@ -160,12 +155,7 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c) { //EMPLOYEE MENU
 
 void emploLoginAuthentication (Employee aux, EmployeeDB *p, ClientDB *c) { //Method to authenticate employee login
 
-	#ifdef OS_WINDOWS
-		std::system("cls"); //windows clean
-	#else
-		std::system("clear"); //linux
-	#endif
-
+	std::system(SISTEMA);
 	Employee autentication;
 	autentication = p->Authentication(aux);
 
@@ -182,11 +172,7 @@ void emploLoginAuthentication (Employee aux, EmployeeDB *p, ClientDB *c) { //Met
 
 
 void employeeLogin(EmployeeDB *p, ClientDB *c) { //Method to employee login 
-	#ifdef OS_WINDOWS
-		std::system("cls"); //windows clean
-	#else
-		std::system("clear"); //linux
-	#endif
+	std::system(SISTEMA);
 
 	cout << "Please log in with your employee account: " <<endl;
 

@@ -6,6 +6,14 @@
 #include "../includes/EmployeeDB.h"
 #include <cstdlib>
 
+#ifdef _WIN32
+	#define SISTEMA "cls"
+
+#else
+	#define SISTEMA "clear"
+
+#endif
+
 using namespace std;
 
 Admin::Admin() { //admin empty constructor
@@ -117,8 +125,7 @@ void admMenu (Admin logged, AdminDB *p, EmployeeDB *b) { //ADMINISTRATOR MENU
 	int auxiliar;
 	do
 	{
-		std::system("clear");
-		//std::system("cls"); //windows
+		std::system(SISTEMA);
 		cout <<endl;
 		cout << "Welcome to admin pannel" <<endl;
 		cout << "You're logged with " << logged.getLogin() << " admin account" <<endl;
@@ -144,7 +151,7 @@ void admMenu (Admin logged, AdminDB *p, EmployeeDB *b) { //ADMINISTRATOR MENU
 				break;
 
 			case 1:
-				std::system("clear");
+				std::system(SISTEMA);
 				askAdmInsert(logged, p);
 				cout<<"\nPress ENTER to continue..."<<endl;
 				cin.ignore();
@@ -152,7 +159,7 @@ void admMenu (Admin logged, AdminDB *p, EmployeeDB *b) { //ADMINISTRATOR MENU
 				break;
 
 			case 2:
-				std::system("clear");
+				std::system(SISTEMA);
 				askAdmDel(logged, p);
 				cout<<"\nPress ENTER to continue..."<<endl;
 				cin.ignore();
@@ -160,7 +167,7 @@ void admMenu (Admin logged, AdminDB *p, EmployeeDB *b) { //ADMINISTRATOR MENU
 				break;
 
 			case 3:
-				std::system("clear");
+				std::system(SISTEMA);
 				askAdmList(logged, p);
 				cout<<"\nPress ENTER to continue..."<<endl;
 				cin.ignore();
@@ -168,7 +175,7 @@ void admMenu (Admin logged, AdminDB *p, EmployeeDB *b) { //ADMINISTRATOR MENU
 				break;
 
 			case 4:
-				std::system("clear");
+				std::system(SISTEMA);
 				askListEmplo(b);
 				cout<<"\nPress ENTER to continue..."<<endl;
 				cin.ignore();
@@ -176,7 +183,7 @@ void admMenu (Admin logged, AdminDB *p, EmployeeDB *b) { //ADMINISTRATOR MENU
 				break;
 
 			case 5:
-				std::system("clear");
+				std::system(SISTEMA);
 				admCreateEmplo(b);
 				cout<<"\nPress ENTER to continue..."<<endl;
 				cin.ignore();
@@ -200,11 +207,7 @@ void admMenu (Admin logged, AdminDB *p, EmployeeDB *b) { //ADMINISTRATOR MENU
 
 void admLoginAuthentication (Admin aux, AdminDB *p , EmployeeDB *b) { //Authenticate administrator login with user inputs
 
-	#ifdef OS_WINDOWS
-		std::system("cls"); //windows clean
-	#else
-		std::system("clear"); //linux
-	#endif
+	std::system(SISTEMA);
 
 	Admin autentication;
 	autentication = p->Authentication(aux);
@@ -221,11 +224,7 @@ void admLoginAuthentication (Admin aux, AdminDB *p , EmployeeDB *b) { //Authenti
 
 void admLogin(AdminDB *p, EmployeeDB *b){ //Ask for admin login/password and call login authentication 
 
-	#ifdef OS_WINDOWS
-		std::system("cls"); //windows clean
-	#else
-		std::system("clear"); //linux
-	#endif
+	std::system(SISTEMA);
 	cout << "Please log in with your admin account: " <<endl;
 
 	string admUser;
