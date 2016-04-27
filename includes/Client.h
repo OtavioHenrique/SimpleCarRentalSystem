@@ -10,10 +10,11 @@ class Client : public Pessoa
 		string codClient;
 
 	public:
+		// constructor
 		Client(string,string,string,string);
 
 		//Functions Set
-		void setCodClient();
+		void setCodClient(string);
 
 		//functions Get
 		string getCodClient();
