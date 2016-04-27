@@ -64,6 +64,12 @@ void emploMenu (Employee logged, EmployeeDB *p) { //EMPLOYEE MENU
 	cout << "6 - List of car leased" <<endl;
 	cout << "7 - List of available cars" <<endl;
 	cout << "8 - To register new car" <<endl;
+	cout << "4 - New motocycle rent" <<endl;
+	cout << "5 - New motocycle devolution" <<endl;
+	cout << "6 - List of motocycle leased" <<endl;
+	cout << "7 - List of available motocycles" <<endl;
+	cout << "8 - To register new motocycle" <<endl;
+
 
 
 	cin >> option;
