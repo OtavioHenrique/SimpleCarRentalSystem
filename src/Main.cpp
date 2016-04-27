@@ -55,19 +55,18 @@ int main(int argc, char** argv) { //Principal menu
 		cout <<endl;
 		cout << "1. Login as employee of the system" << endl;
 		cout << "2. Login as admin of the system" << endl;
-		cout << "3. Exit" << endl;
+		cout << "0. Exit" << endl;
 		cin >> option;
 
 		switch(option){
-
+			case 0:
+				std::system(SISTEMA);
+				break;
 			case 1:
 				employeeLogin(&b, &c);
 				break;
 			case 2:
 				admLogin(&p, &b);
-				break;
-			case 3:
-				exit(0);
 				break;
 
 			default:
@@ -79,5 +78,5 @@ int main(int argc, char** argv) { //Principal menu
 
 		}
 
-	} while(option != 3);
+	} while(option);
 }
