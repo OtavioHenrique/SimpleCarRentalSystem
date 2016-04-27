@@ -200,8 +200,11 @@ void admMenu (Admin logged, AdminDB *p, EmployeeDB *b) { //ADMINISTRATOR MENU
 
 void admLoginAuthentication (Admin aux, AdminDB *p , EmployeeDB *b) { //Authenticate administrator login with user inputs
 
-	std::system("clear"); //linux
-	//std::system("cls"); //windows
+	#ifdef OS_WINDOWS
+		std::system("cls"); //windows clean
+	#else
+		std::system("clear"); //linux
+	#endif
 
 	Admin autentication;
 	autentication = p->Authentication(aux);
@@ -218,9 +221,11 @@ void admLoginAuthentication (Admin aux, AdminDB *p , EmployeeDB *b) { //Authenti
 
 void admLogin(AdminDB *p, EmployeeDB *b){ //Ask for admin login/password and call login authentication 
 
-	std::system("clear"); //linux
-	//std::system("cls"); //windows
-
+	#ifdef OS_WINDOWS
+		std::system("cls"); //windows clean
+	#else
+		std::system("clear"); //linux
+	#endif
 	cout << "Please log in with your admin account: " <<endl;
 
 	string admUser;

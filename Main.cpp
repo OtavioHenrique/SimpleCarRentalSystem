@@ -36,7 +36,11 @@ int main(int argc, char** argv) { //Principal menu
 	EmployeeDB b;
 
 	do {
-		std::system("clear");
+		#ifdef OS_WINDOWS
+			std::system("cls"); //windows clean
+		#else
+			std::system("clear"); //linux
+		#endif
 		cout <<endl;
 		cout << "Welcome to the Guhtyk Car Rental clerk panel" << endl;
 		cout <<endl;

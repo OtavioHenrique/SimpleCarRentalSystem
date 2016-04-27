@@ -48,8 +48,11 @@ void Employee::print() { //print employee method
 void emploMenu (Employee logged, EmployeeDB *p) { //EMPLOYEE MENU
 
 	int option;
-	std::system("clear"); //linux
-	//std::system("cls"); //windows
+	#ifdef OS_WINDOWS
+		std::system("cls"); //windows clean
+	#else
+		std::system("clear"); //linux
+	#endif
 	cout <<endl;
 	cout << "Welcome to Employee pannel" <<endl;
 	cout << "You're logged with " << logged.getLogin() << " employee account" <<endl;
@@ -104,8 +107,11 @@ void emploMenu (Employee logged, EmployeeDB *p) { //EMPLOYEE MENU
 
 void emploLoginAuthentication (Employee aux, EmployeeDB *p) { //Method to authenticate employee login
 
-	std::system("clear"); //linux
-	//std::system("cls"); //windows
+	#ifdef OS_WINDOWS
+		std::system("cls"); //windows clean
+	#else
+		std::system("clear"); //linux
+	#endif
 
 	Employee autentication;
 	autentication = p->Authentication(aux);
@@ -123,8 +129,11 @@ void emploLoginAuthentication (Employee aux, EmployeeDB *p) { //Method to authen
 
 
 void employeeLogin (EmployeeDB *p) { //Method to employee login 
-	std::system("clear"); //linux
-	//std::system("cls"); //windows
+	#ifdef OS_WINDOWS
+		std::system("cls"); //windows clean
+	#else
+		std::system("clear"); //linux
+	#endif
 
 	cout << "Please log in with your employee account: " <<endl;
 
