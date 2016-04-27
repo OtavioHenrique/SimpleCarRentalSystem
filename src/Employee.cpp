@@ -109,18 +109,36 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c) { //EMPLOYEE MENU
 				break;
 
 			case 2:
+				#ifdef OS_WINDOWS
+					std::system("cls"); //windows clean
+				#else
+					std::system("clear"); //linux
+				#endif
 				cout<<"customer cpf you want to delete: "<<endl;
 				cin>>cpf;
 
 				if(c->exclude(cpf))
 					cout<<"Client successfully excluded "<<endl;
 				else
-					cout<<"error deleting client"<<endl;
+					cout<<"Customer does not exist"<<endl;
 
 				cout<<"\nPress ENTER to continue..."<<endl;
 				cin.ignore();
 				cin.get(); 
 				break;
+
+			case 3:
+				#ifdef OS_WINDOWS
+					std::system("cls"); //windows clean
+				#else
+					std::system("clear"); //linux
+				#endif
+
+				c->list();
+				cout<<"\nPress ENTER to continue..."<<endl;
+				cin.ignore();
+				cin.get(); 
+
 
 			case 9:
 				break;
