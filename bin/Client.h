@@ -1,11 +1,8 @@
 #include <iostream>
 #include <cstdlib>
-#include "Pessoa.h"
+#include "bin/Pessoa.h"
 
 using namespace std;
-
-#ifndef Client_h
-#define Client_h
 
 class Client : public Pessoa 
 {
@@ -16,7 +13,7 @@ class Client : public Pessoa
 		Client(string,string,string,string);
 
 		//Functions Set
-		void setCodClient(string);
+		void setCodClient();
 
 		//functions Get
 		string getCodClient();
@@ -27,5 +24,3 @@ class Client : public Pessoa
 		~Client();
 	
 };
-
-#endif
