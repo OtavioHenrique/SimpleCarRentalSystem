@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
-#include "bin/AdminDB.h"
-#include "bin/Admin.h"
-#include "bin/EmployeeDB.h"
-#include "bin/Employee.h"
+#include "../includes/AdminDB.h"
+#include "../includes/Admin.h"
+#include "../includes/EmployeeDB.h"
+#include "../includes/Employee.h"
 
 EmployeeDB::EmployeeDB(){ //Employee databas constructor
 

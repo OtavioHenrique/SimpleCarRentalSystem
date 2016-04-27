@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
-#include "bin/AdminDB.h"
-#include "bin/Admin.h"
-#include "bin/Employee.h"
-#include "bin/EmployeeDB.h"
+#include "../includes/AdminDB.h"
+#include "../includes/Admin.h"
+#include "../includes/Employee.h"
+#include "../includes/EmployeeDB.h"
 #include <cstdlib>
 
 using namespace std;

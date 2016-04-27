@@ -12,10 +12,10 @@
 #include <iostream>
 #include <cstdlib>
 #include <string>
-#include "bin/Admin.h"
-#include "bin/AdminDB.h"
-#include "bin/EmployeeDB.h"
-#include "bin/Employee.h"
+#include "../includes/Admin.h"
+#include "../includes/AdminDB.h"
+#include "../includes/EmployeeDB.h"
+#include "../includes/Employee.h"
 using namespace std;
 
 void askAdmInsert(Admin logged, AdminDB *p);

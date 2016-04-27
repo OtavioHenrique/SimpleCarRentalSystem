@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include "bin/AdminDB.h"
-#include "bin/Admin.h"
+#include "../includes/AdminDB.h"
+#include "../includes/Admin.h"
 
 
 AdminDB::AdminDB(){ //Admin database constructor

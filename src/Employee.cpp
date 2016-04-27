@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include "bin/EmployeeDB.h"
-#include "bin/Employee.h"
+#include "../includes/EmployeeDB.h"
+#include "../includes/Employee.h"
 #include <cstdlib>
 
 using namespace std;

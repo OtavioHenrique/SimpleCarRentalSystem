@@ -1,4 +1,4 @@
-#include "bin/Pessoa.h"
+#include "../includes/Pessoa.h"
 #include <iostream>
 #include <cstdlib>
 
