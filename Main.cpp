@@ -36,6 +36,7 @@ int main(int argc, char** argv) { //Principal menu
 	EmployeeDB b;
 
 	do {
+		std::system("clear");
 		cout <<endl;
 		cout << "Welcome to the Guhtyk Car Rental clerk panel" << endl;
 		cout <<endl;
@@ -43,10 +44,9 @@ int main(int argc, char** argv) { //Principal menu
 		cout << "======================" <<endl;
 		cout <<endl;
 		cout <<endl;
-		cout << "1. To Login" << endl;
-		cout << "2. Exit" << endl;
-		cout <<endl;
-		cout << "3. Login as admin of the system" << endl;
+		cout << "1. Login as employee of the system" << endl;
+		cout << "2. Login as admin of the system" << endl;
+		cout << "3. Exit" << endl;
 		cin >> option;
 
 		switch(option){
@@ -55,14 +55,20 @@ int main(int argc, char** argv) { //Principal menu
 				employeeLogin(&b);
 				break;
 			case 2:
-				exit(0);
+				admLogin(&p, &b);
 				break;
 			case 3:
-				admLogin(&p, &b);
+				exit(0);
+				break;
+
 			default:
 				cout << "Please enter with valid option" << endl;
+				cout<<"\nPress ENTER to continue..."<<endl;
+				cin.ignore();
+				cin.get(); 
+				break;
 
 		}
 
-	} while(option);
+	} while(option != 3);
 }

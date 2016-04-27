@@ -57,7 +57,9 @@ void AdminDB::listar(){
 	int i=0;
 	for (i=0; i<10; i++){
 		if (p[i].getLogin() != ""){
-			p[i].print();
+				cout<<"---------------------"<<endl;
+				p[i].print();
+				cout<<"---------------------"<<endl;
 		}
 	}
 }

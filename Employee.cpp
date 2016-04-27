@@ -70,7 +70,7 @@ void emploMenu (Employee logged, EmployeeDB *p) { //EMPLOYEE MENU
 	
 	switch(option){
 		case 1:
-			
+			// UTILIZA CLASSE PESSOA E CLASSE CLIENTE
 			break;
 		case 2:
 			
@@ -108,6 +108,9 @@ void emploLoginAuthentication (Employee aux, EmployeeDB *p) { //Method to authen
 		emploMenu(autentication, p);
 	} else {
 		cout << "Wrong Username/Password" <<endl;
+		cout<<"\nPress ENTER to continue..."<<endl;
+		cin.ignore();
+		cin.get(); 
 	}	
 }
 

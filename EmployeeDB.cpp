@@ -54,7 +54,9 @@ void EmployeeDB::listar(){ //method to list employee from database
 	int i=0;
 	for (i=0; i<10; i++){
 		if (p[i].getLogin() != ""){
+			cout<<"---------------------"<<endl;
 			p[i].print();
+			cout<<"---------------------"<<endl;
 		}
 	}
 }
@@ -63,7 +65,7 @@ Employee EmployeeDB::Authentication(Employee aux){ //method to authenticate empl
 
 	//this method scan the database, searching for a register match with the user inputs
 
-		int i=0;
+	int i=0;
 	Employee logado;
 	for (i=0; i<10; i++){
 		if (((p[i].getLogin()) == (aux.getLogin())) && ((p[i].getPassword()) == (aux.getPassword()))){
