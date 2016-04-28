@@ -17,7 +17,11 @@ class ClientDB
 		ClientDB();
 		int include(string, string, string, string); // add client, return 1 if sucess or 0 if failed 
 		int exclude(string); // erase client, return 1 if sucess or 0 if failed (according to the CPF)
-		void listar(); // list of clients
+
+
+
+		void list(); // list of clients
+
 		~ClientDB();
 	
 };

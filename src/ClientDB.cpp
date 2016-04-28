@@ -48,7 +48,11 @@ int ClientDB::exclude(string cpf)
 	return 0;
 }
 
-void ClientDB::listar()
+
+
+
+void ClientDB::list()
+
 {
 	int i;
 	for (int i = 0; i < MAX; i++)

@@ -19,6 +19,15 @@
 #include "../includes/ClientDB.h"
 using namespace std;
 
+
+#ifdef _WIN32
+	#define SISTEMA "cls"
+
+#else
+	#define SISTEMA "clear"
+
+#endif
+
 void askAdmInsert(Admin logged, AdminDB *p);
 void askAdmDel(Admin logged, AdminDB *p);
 void askAdmList(Admin logged, AdminDB *p);
@@ -38,11 +47,7 @@ int main(int argc, char** argv) { //Principal menu
 	ClientDB c;
 
 	do {
-		#ifdef OS_WINDOWS
-			std::system("cls"); //windows clean
-		#else
-			std::system("clear"); //linux
-		#endif
+		std::system(SISTEMA);
 		cout <<endl;
 		cout << "Welcome to the Guhtyk Car Rental clerk panel" << endl;
 		cout <<endl;
