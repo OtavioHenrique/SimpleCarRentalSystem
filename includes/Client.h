@@ -21,6 +21,7 @@ class Client : public Pessoa
 
 		//others functions
 		void print();
+		void consult(string);
 
 		~Client();
 	

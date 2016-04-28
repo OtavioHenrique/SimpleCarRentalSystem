@@ -33,6 +33,11 @@ void Client::print()
 	cout<<"Codigo do cliente: "<<getCodClient()<<endl;
 }
 
+void Client::consult(string cpf)
+{
+
+}
+
 Client::~Client()
 {
 	

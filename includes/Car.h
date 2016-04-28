@@ -12,7 +12,7 @@ class Car : public Vehicle
 {
 	private:
 		string car;
-		Client* rent;
+		string rentedCar;
 
 	public:
 		Car(string, string,  string, int);
@@ -24,9 +24,10 @@ class Car : public Vehicle
 		string getCar();
 
 		//others functions
-		void rentCar(Client*);
+		void rentCar(string);
 		void releaseCar();
 		void printAll();
+		int availability();
 
 		~Car();
 	

@@ -195,7 +195,6 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c) { //EMPLOYEE MENU
 				cin.get(); 
 				break;
 
-
 			default:
 				std::system(SISTEMA);
 
