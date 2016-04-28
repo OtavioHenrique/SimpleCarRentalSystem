@@ -1,9 +1,7 @@
-<<<<<<< HEAD
+
 *.Makefile
 *.o
 *.exe
 Makefile
-=======
 *.exe
 Makefile
->>>>>>> 208078b8e54da5955f1d5027d2da869493737799
