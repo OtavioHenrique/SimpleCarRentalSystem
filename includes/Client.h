@@ -1,7 +1,10 @@
 #include <iostream>
 #include <cstdlib>
-#include "Pessoa.h"
 
+#ifndef Client_h
+#define Client_h
+
+#include "Pessoa.h"
 using namespace std;
 
 class Client : public Pessoa 
@@ -25,3 +28,5 @@ class Client : public Pessoa
 		~Client();
 	
 };
+
+#endif

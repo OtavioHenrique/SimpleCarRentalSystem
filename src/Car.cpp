@@ -7,7 +7,7 @@ using namespace std;
 Car::Car(string car, string color, string licensePlate, int year) : Vehicle(color, licensePlate, year)
 {
 	setCar(car);
-	rent = NULL;
+	rentedCar = NULL;
 }
 
 void Car::setCar(string car)
@@ -15,19 +15,25 @@ void Car::setCar(string car)
 	this->car = car;
 }
 
+void Car::setRentedCar(Client* rentedCar)
+{
+	this->rentedCar = rentedCar;
+}
+
 string Car::getCar()
 {
 	return car;
 }
 
+
 void Car::rentCar(Client* client)
 {
-	rent = client;
+	setRentedCar(client);
 }
 
 void Car::releaseCar()
 {
-	rent = NULL;
+	rentedCar = NULL;
 }
 
 void Car::printAll()
@@ -35,9 +41,19 @@ void Car::printAll()
 	cout<<"-----------------"<<endl;
 	cout<<"Car: "<<getCar()<<endl;
 	print();
-	if(rent != NULL)
-		rent->print();
+	if(rentedCar != NULL)
+	{
+		rentedCar->print();
+	}
 	cout<<"-----------------"<<endl;
+}
+
+int Car::availability()
+{
+	if(rentedCar == NULL )
+		return 1;
+	else
+		return 0;
 }
 
 Car::~Car()
