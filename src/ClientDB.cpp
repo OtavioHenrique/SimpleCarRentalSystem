@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstdlib>
-#define MAX 10
+#define MAX 104
 #include "../includes/ClientDB.h"
 
 using namespace std;

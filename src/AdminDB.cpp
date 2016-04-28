@@ -2,6 +2,7 @@
 #include <string>
 #include "../includes/AdminDB.h"
 #include "../includes/Admin.h"
+#include "../includes/Pessoa.h"
 
 
 AdminDB::AdminDB(){ //Admin database constructor
@@ -14,17 +15,24 @@ AdminDB::AdminDB(){ //Admin database constructor
 	for (i=0; i<10; i++){
 		if (i==0) {
 			p[i].setLogin("admin");
-			p[i].setPassword("123");	
+			p[i].setPassword("123");
+			p[i].setName("admin");
+			p[i].setCpf("");
+			p[i].setRG("");
+
 		} else {
 		p[i].setLogin("");
 		p[i].setPassword("");
+		p[i].setName("");
+		p[i].setCpf("");
+		p[i].setRG("");
 		}
 }		
 }
 
-int AdminDB::incluir (string c, string n){ //method to include admin account in db
+int AdminDB::incluir (string _login, string _pass,string _name, string _CPF, string _RG){ //method to include admin account in db
 	
-	if (existe (c) != -1){
+	if (existe (_login) != -1){
 		return 0;
 	}
 	
@@ -32,8 +40,12 @@ int AdminDB::incluir (string c, string n){ //method to include admin account in 
 	
 	for (i=0; i<10; i++){
 		if (p[i].getLogin() == ""){
-		p[i].setPassword(n);
-		p[i].setLogin(c);
+		p[i].setPassword(_pass);
+		p[i].setLogin(_login);
+		p[i].setName(_name);
+		p[i].setCpf(_CPF);
+		p[i].setRG(_RG);
+
 		return 1;			
 		}			
 	}
@@ -48,6 +60,10 @@ int AdminDB::excluir (string c){ //method to delete admin account from db
 	if (k != -1){
 		p[k].setLogin("");	
 		p[k].setPassword("");
+		p[k].setName("");
+		p[k].setCpf("");
+		p[k].setRG("");
+
 		return 1;
 	}
 	return 0;			

@@ -51,3 +51,8 @@ void Vehicle::print()
 	cout<<"License Plate: "<<getLicensePlate()<<endl;
 	cout<<"Year: "<<getYear()<<endl;
 }
+
+Vehicle::~Vehicle()
+{
+	
+}

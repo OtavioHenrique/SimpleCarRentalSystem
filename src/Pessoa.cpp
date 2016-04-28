@@ -5,6 +5,11 @@
 using namespace std;
 
 //Constructor
+Pessoa::Pessoa() {
+
+}
+
+
 Pessoa::Pessoa(string name,string cpf, string RG)
 {
 	setName(name);

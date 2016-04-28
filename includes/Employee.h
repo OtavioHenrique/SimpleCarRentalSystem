@@ -1,27 +1,24 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
+#include "Pessoa.h"
 #ifndef EMPLOYEE_H
 #define EMPLOYEE_H
 
-class Employee {
+class Employee : public Pessoa {
 	private:
 		 string login;
 		 string password;
-		 string name;
 		 
 	public:
 		Employee();
-		Employee(string, string, string);
+		Employee(string , string, string, string, string);
 
 		void setLogin(string); 
 		void setPassword (string);
-		void setName(string);
 
 		string getLogin ();
 		string getPassword();
-		string getName();
 		
 		void print();
 };

@@ -12,10 +12,10 @@ class Car : public Vehicle
 {
 	private:
 		string car;
-		Client *rent; 
+		Client* rent;
 
 	public:
-		Car(string, string, string, string, int);
+		Car(string, string,  string, int);
 
 		//Functions SET
 		void setCar(string);
@@ -24,7 +24,7 @@ class Car : public Vehicle
 		string getCar();
 
 		//others functions
-		void rentCar();
+		void rentCar(Client*);
 		void releaseCar();
 		void printAll();
 

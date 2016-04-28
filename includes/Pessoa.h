@@ -14,6 +14,7 @@ class Pessoa
 
 	public:
 		//constructor
+		Pessoa();
 		Pessoa(string,string,string);
 
 		// Functions set

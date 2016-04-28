@@ -39,3 +39,8 @@ void Car::printAll()
 		rent->print();
 	cout<<"-----------------"<<endl;
 }
+
+Car::~Car()
+{
+	
+}

@@ -15,12 +15,15 @@ EmployeeDB::EmployeeDB(){ //Employee databas constructor
 	for (i=0; i<10; i++){
 			p[i].setLogin("");
 			p[i].setPassword("");
+			p[i].setName("");
+			p[i].setCpf("");
+			p[i].setRG("");
 		}		
 }
 
-int EmployeeDB::incluir (string c, string n, string f){ //Method to include employee on database
+int EmployeeDB::incluir (string _login, string _pass,string _name, string _CPF, string _RG){ //Method to include employee on database
 	
-	if (existe (c) != -1){
+	if (existe (_login) != -1){
 		return 0;
 	}
 	
@@ -28,9 +31,11 @@ int EmployeeDB::incluir (string c, string n, string f){ //Method to include empl
 	//insert an employee
 	for (i=0; i<10; i++){
 		if (p[i].getLogin() == ""){
-			p[i].setPassword(n);
-			p[i].setLogin(c);
-			p[i].setName(f);
+			p[i].setPassword(_pass);
+			p[i].setLogin(_login);
+			p[i].setName(_name);
+			p[i].setCpf(_CPF);
+			p[i].setRG(_RG);
 			return 1;			
 		}			
 	}
@@ -45,6 +50,8 @@ int EmployeeDB::excluir (string c){ //method to delete employee from database
 		p[k].setLogin("");	
 		p[k].setPassword("");
 		p[k].setName("");
+		p[k].setCpf("");
+		p[k].setRG("");
 		return 1;
 	}
 	return 0;			
