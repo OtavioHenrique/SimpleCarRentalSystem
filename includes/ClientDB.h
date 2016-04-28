@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include "Client.h"
-#define MAX 104
+#define MAX 10
 
 using namespace std;
 
@@ -18,8 +18,7 @@ class ClientDB
 		int include(string, string, string, string); // add client, return 1 if sucess or 0 if failed 
 		int exclude(string); // erase client, return 1 if sucess or 0 if failed (according to the CPF)
 
-
-
+		Client* find(string);
 		void list(); // list of clients
 
 		~ClientDB();

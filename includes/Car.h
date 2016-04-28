@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdlib>
-#include "Vehicle.h"
 #include "Client.h"
+#include "Vehicle.h"
 
 using namespace std;
 
@@ -12,19 +12,20 @@ class Car : public Vehicle
 {
 	private:
 		string car;
-		string rentedCar;
+		Client* rentedCar;
 
 	public:
 		Car(string, string,  string, int);
 
 		//Functions SET
 		void setCar(string);
+		void setRentedCar(Client*);
 
 		//functions GET
 		string getCar();
 
 		//others functions
-		void rentCar(string);
+		void rentCar(Client*); // set cpf of Client
 		void releaseCar();
 		void printAll();
 		int availability();

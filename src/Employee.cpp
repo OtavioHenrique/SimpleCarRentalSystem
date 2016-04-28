@@ -2,18 +2,10 @@
 #include <string>
 #include "../includes/EmployeeDB.h"
 #include "../includes/Employee.h"
-
-
 #include "../includes/Pessoa.h"
-
 #include "../includes/ClientDB.h"
-
-
-
-
-
+#include "../includes/CarDB.h"
 #include <cstdlib>
-
 
 #ifdef _WIN32
 	#define SISTEMA "cls"
@@ -64,19 +56,15 @@ void Employee::print() { //print employee method
 
 
 
-void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c) { //EMPLOYEE MENU
+void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c, CarDB* car) { //EMPLOYEE MENU
 
 	int option;
 	string name, cpf, RG, code;
+	string nameOfCar,color, licensePlate; 
+	int year,aux;
+	Client *client;
 	do
 	{
-
-
-
-
-
-
-
 		std::system(SISTEMA);
 
 
@@ -86,9 +74,6 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c) { //EMPLOYEE MENU
 		cout << "What do you want?" <<endl;
 		cout<<endl;
 		cout<<endl;
-
-
-
 
 
 		cout<<"========== Clients =========="<<endl;
@@ -108,15 +93,12 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c) { //EMPLOYEE MENU
 
 		cout<<"========== Motocycles =========="<<endl;
 
-		cout << "4 - New motocycle rent" <<endl;
-		cout << "5 - New motocycle devolution" <<endl;
-		cout << "6 - List of motocycle leased" <<endl;
-		cout << "7 - List of available motocycles" <<endl;
-
-
-
-
+		cout << "9 - New motocycle rent" <<endl;
+		cout << "10 - New motocycle devolution" <<endl;
+		cout << "11 - List of motocycle leased" <<endl;
+		cout << "12 - List of available motocycles" <<endl;
 		cout << "8 - To register new motocycle" <<endl<<endl;
+
 		cout << "0 - Quit"<<endl;
 
 
@@ -124,14 +106,6 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c) { //EMPLOYEE MENU
 		
 		switch(option)
 		{
-
-
-		
-
-
-
-
-
 
 			case 0:
 				break;
@@ -180,16 +154,59 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c) { //EMPLOYEE MENU
 				cin.get(); 
 				break;
 
-
-
-
-
-
-
 			case 3:
 				std::system(SISTEMA);
 
 				c->list();
+				cout<<"\nPress ENTER to continue..."<<endl;
+				cin.ignore();
+				cin.get(); 
+				break;
+
+			case 4:
+				std::system(SISTEMA);
+				cout<<"Car license plate: "<<endl;
+				cin>>licensePlate;
+				cout<<"Client cpf: "<<endl;
+				cin>>cpf;
+				client = c->find(cpf);
+
+				if(client != NULL)
+				{
+					aux = car->rent(licensePlate, client );
+
+					if( aux == 2  )
+						cout<<"Unavailable car "<<endl;
+					else if(aux == 0)
+						cout<<"License plate not found"<<endl;
+					else if(aux)
+						cout<<"Rent successfully"<<endl;
+
+				}
+				else
+					cout<<"Customer not found"<<endl;
+				
+				cout<<"\nPress ENTER to continue..."<<endl;
+				cin.ignore();
+				cin.get(); 
+				break;
+
+			case 8:
+				std::system(SISTEMA);
+				cout<<"Car name: "<<endl;
+				cin>>nameOfCar;
+				cout<<"Car color: "<<endl;
+				cin>>color;
+				cout<<"Car license plate: "<<endl;
+				cin>>licensePlate;
+				cout<<"Car year: "<<endl;
+				cin>>year;
+
+				if(car->newCar(nameOfCar, color, licensePlate, year) )
+					cout<<"Successfully added car "<<endl;
+				else
+					cout<<"Bank full of cars"<<endl;
+
 				cout<<"\nPress ENTER to continue..."<<endl;
 				cin.ignore();
 				cin.get(); 
@@ -216,7 +233,7 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c) { //EMPLOYEE MENU
 
 
 
-void emploLoginAuthentication (Employee aux, EmployeeDB *p, ClientDB *c) { //Method to authenticate employee login
+void emploLoginAuthentication (Employee aux, EmployeeDB *p, ClientDB *c, CarDB* car) { //Method to authenticate employee login
 
 	std::system(SISTEMA);
 
@@ -224,7 +241,7 @@ void emploLoginAuthentication (Employee aux, EmployeeDB *p, ClientDB *c) { //Met
 	autentication = p->Authentication(aux);
 
 	if (autentication.getLogin() != "-1") {
-		emploMenu(autentication, p, c);
+		emploMenu(autentication, p, c, car);
 	} else {
 		cout << "Wrong Username/Password" <<endl;
 		cout<<"\nPress ENTER to continue..."<<endl;
@@ -235,7 +252,7 @@ void emploLoginAuthentication (Employee aux, EmployeeDB *p, ClientDB *c) { //Met
 
 
 
-void employeeLogin(EmployeeDB *p, ClientDB *c) { //Method to employee login 
+void employeeLogin(EmployeeDB *p, ClientDB *c, CarDB* car) { //Method to employee login 
 
 
 
@@ -259,6 +276,6 @@ void employeeLogin(EmployeeDB *p, ClientDB *c) { //Method to employee login
 
 
 
-	emploLoginAuthentication(aux, p, c);
+	emploLoginAuthentication(aux, p, c, car);
 
 }
