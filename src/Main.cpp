@@ -6,7 +6,7 @@
 //Leonardo Papst
 
 //For first time, log with admin with username = admin, password = 123
-//To compile on GNU/linux systems : g++ Main.cpp AdminDB.cpp Employee.cpp EmployeeDB.cpp LoginADM.cpp -o Main
+
 
 
 #include <iostream>
