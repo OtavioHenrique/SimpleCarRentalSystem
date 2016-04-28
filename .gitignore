@@ -1,7 +1,3 @@
 
-*.Makefile
+Makefile
 *.o
-*.exe
-Makefile
-*.exe
-Makefile
