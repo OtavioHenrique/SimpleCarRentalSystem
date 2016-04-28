@@ -2,11 +2,11 @@
 #include <string>
 #include "../includes/EmployeeDB.h"
 #include "../includes/Employee.h"
-<<<<<<< HEAD
+
 #include "../includes/Pessoa.h"
-=======
+
 #include "../includes/ClientDB.h"
->>>>>>> faaac0009862d82ca0f385549e64cb1992dfc93c
+
 #include <cstdlib>
 
 using namespace std;
@@ -179,11 +179,11 @@ void employeeLogin(EmployeeDB *p, ClientDB *c) { //Method to employee login
 	cin >> emploUser;
 	cout << "Password: ";
 	cin >> emploPass; //Depois tentar implementar função para aparecer *
-<<<<<<< HEAD
+
 	Employee aux(emploUser,emploPass, "", "", "");
-	emploLoginAuthentication(aux, p);
-=======
-	Employee aux(emploUser,emploPass, "");
+
+
+
 	emploLoginAuthentication(aux, p, c);
->>>>>>> faaac0009862d82ca0f385549e64cb1992dfc93c
+
 }

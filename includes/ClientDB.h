@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include "Client.h"
-#define MAX 10
+#define MAX 104
 
 using namespace std;
 
