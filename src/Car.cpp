@@ -25,6 +25,11 @@ string Car::getCar()
 	return car;
 }
 
+Client* Car::getRentedCar()
+{
+	return rentedCar;
+}
+
 
 void Car::rentCar(Client* client)
 {
@@ -43,6 +48,7 @@ void Car::printAll()
 	print();
 	if(rentedCar != NULL)
 	{
+		cout<<endl<<"Rented by: "<<endl;
 		rentedCar->print();
 	}
 	cout<<"-----------------"<<endl;

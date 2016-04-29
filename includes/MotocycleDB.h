@@ -1,28 +1,29 @@
 #include <iostream>
 #include <cstdlib>
-#include "Car.h"
+#include "Motocycle.h"
 
-#ifndef CarDB_h
-#define CarDB_h
+#ifndef MotocycleDB_h
+#define MotocycleDB_h
 
 using namespace std;
 
-class CarDB
+class MotocycleDB
 {
 	private:
-		Car* cars[10];
+		Motocycle* motocycles[10];
 
 	public:
-		CarDB();
+		MotocycleDB();
 
-		int newCar(string, string, string, int);
+		int newMotocycle(string, string, string, int);
+		int deleteMotocycle(string);
 		int rent(string, Client*); //licensePlate and Client
 		int release(string); // licensePlate
 		int releaseAll(Client*);
 		void listAvailable();
 		void listLeased();
 
-		~CarDB();
+		~MotocycleDB();
 	
 };
 

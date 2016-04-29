@@ -18,6 +18,7 @@
 #include "../includes/Employee.h"
 #include "../includes/ClientDB.h"
 #include "../includes/CarDB.h"
+#include "../includes/MotocycleDB.h"
 using namespace std;
 
 
@@ -36,7 +37,7 @@ void admMenu (Admin logged, AdminDB *p, AdminDB *b);
 void admLoginAuthentication (Admin aux, AdminDB *p);
 void admLogin(AdminDB *p, EmployeeDB *b);
 void admCreateEmplo(EmployeeDB *p);
-void employeeLogin (EmployeeDB *p, ClientDB *c, CarDB *car);
+void employeeLogin (EmployeeDB *p, ClientDB *c, CarDB *car, MotocycleDB *motocycle);
 
 
 
@@ -47,6 +48,7 @@ int main(int argc, char** argv) { //Principal menu
 	EmployeeDB b;
 	ClientDB c;
 	CarDB car;
+	MotocycleDB motocycle;
 
 	do {
 		std::system(SISTEMA);
@@ -65,7 +67,7 @@ int main(int argc, char** argv) { //Principal menu
 		switch(option){
 
 			case 1:
-				employeeLogin(&b, &c, &car);
+				employeeLogin(&b, &c, &car, &motocycle);
 				break;
 			case 2:
 				admLogin(&p, &b);

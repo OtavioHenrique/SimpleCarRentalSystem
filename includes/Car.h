@@ -23,10 +23,11 @@ class Car : public Vehicle
 
 		//functions GET
 		string getCar();
+		Client* getRentedCar();
 
 		//others functions
 		void rentCar(Client*); // set cpf of Client
-		void releaseCar();
+		void releaseCar(); // release car
 		void printAll();
 		int availability();
 
