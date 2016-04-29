@@ -5,6 +5,7 @@
 #include "../includes/Pessoa.h"
 #include "../includes/ClientDB.h"
 #include "../includes/CarDB.h"
+#include "../includes/MotocycleDB.h"
 #include <cstdlib>
 
 #ifdef _WIN32
@@ -56,11 +57,11 @@ void Employee::print() { //print employee method
 
 
 
-void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c, CarDB* car) { //EMPLOYEE MENU
+void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c, CarDB* car, MotocycleDB *motocycle) { //EMPLOYEE MENU
 
 	int option;
 	string name, cpf, RG, code;
-	string nameOfCar,color, licensePlate; 
+	string nameOfCar, nameOfmotocycle,color, licensePlate; 
 	int year,aux;
 	Client *client;
 	do
@@ -97,7 +98,8 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c, CarDB* car) { //EMP
 		cout << "10 - New motocycle devolution" <<endl;
 		cout << "11 - List of motocycle leased" <<endl;
 		cout << "12 - List of available motocycles" <<endl;
-		cout << "8 - To register new motocycle" <<endl<<endl;
+		cout << "13 - To register new motocycle" <<endl;
+		cout << "14 - To delete a motocycle " <<endl<<endl;
 
 		cout << "0 - Quit"<<endl;
 
@@ -142,6 +144,7 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c, CarDB* car) { //EMP
 				if(client != NULL)
 				{
 					car->releaseAll(client);
+					motocycle->releaseAll(client);
 					c->exclude(cpf);
 					cout<<"Client successfully excluded "<<endl;
 				}
@@ -196,7 +199,7 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c, CarDB* car) { //EMP
 				cout<<"Car license plate: "<<endl;
 				cin>>licensePlate;
 				aux = car->release(licensePlate);
-				if(aux)
+				if(aux == 1)
 					cout<<"Successfully relsease car"<<endl;
 				else if(aux == 0)
 					cout<<"Car not found"<<endl;
@@ -243,6 +246,102 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c, CarDB* car) { //EMP
 				cin.get(); 
 				break;
 
+			case 9:
+				std::system(SISTEMA);
+				cout<<"Motocycle license plate: "<<endl;
+				cin>>licensePlate;
+				cout<<"Client cpf: "<<endl;
+				cin>>cpf;
+				client = c->find(cpf);
+
+				if(client != NULL)
+				{
+					aux = motocycle->rent(licensePlate, client );
+
+					if( aux == 2  )
+						cout<<"Unavailable motocycle "<<endl;
+					else if(aux == 0)
+						cout<<"License plate not found"<<endl;
+					else if(aux)
+						cout<<"Rent successfully"<<endl;
+
+				}
+				else
+					cout<<"Customer not found"<<endl;
+				
+				cout<<"\nPress ENTER to continue..."<<endl;
+				cin.ignore();
+				cin.get(); 
+				break;
+
+			case 10:
+				std::system(SISTEMA);
+				cout<<"Motocycle license plate: "<<endl;
+				cin>>licensePlate;
+				aux = motocycle->release(licensePlate);
+				if(aux == 1)
+					cout<<"Successfully relsease motocycle"<<endl;
+				else if(aux == 0)
+					cout<<"Motocycle not found"<<endl;
+
+				cout<<"\nPress ENTER to continue..."<<endl;
+				cin.ignore();
+				cin.get(); 
+				break;
+
+			case 11:
+				std::system(SISTEMA);
+				motocycle->listLeased();
+				cout<<"\nPress ENTER to continue..."<<endl;
+				cin.ignore();
+				cin.get(); 
+				break;
+
+			case 12:
+				std::system(SISTEMA);
+				motocycle->listAvailable();
+				cout<<"\nPress ENTER to continue..."<<endl;
+				cin.ignore();
+				cin.get(); 
+				break;
+
+			case 13:
+				std::system(SISTEMA);
+				cout<<"Motocycle name: "<<endl;
+				cin>>nameOfmotocycle;
+				cout<<"Motocycle color: "<<endl;
+				cin>>color;
+				cout<<"motocycle license plate: "<<endl;
+				cin>>licensePlate;
+				cout<<"Motocycle year: "<<endl;
+				cin>>year;
+
+				if(motocycle->newMotocycle(nameOfmotocycle, color, licensePlate, year) )
+					cout<<"Successfully added motocycle "<<endl;
+				else
+					cout<<"Bank full of motocycles"<<endl;
+
+				cout<<"\nPress ENTER to continue..."<<endl;
+				cin.ignore();
+				cin.get(); 
+				break;
+
+			case 14:
+				std::system(SISTEMA);
+				cout<<"Motocycle license plate: "<<endl;
+				cin>>licensePlate;
+
+				if( motocycle->deleteMotocycle(licensePlate) )
+					cout<<"Successfully deleted motocycle"<<endl;
+				else
+					cout<<"License plate not found"<<endl;
+
+				cout<<"\nPress ENTER to continue..."<<endl;
+				cin.ignore();
+				cin.get(); 
+				break;
+
+
 			default:
 				std::system(SISTEMA);
 
@@ -262,9 +361,7 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c, CarDB* car) { //EMP
 	}
 
 
-
-
-void emploLoginAuthentication (Employee aux, EmployeeDB *p, ClientDB *c, CarDB* car) { //Method to authenticate employee login
+void emploLoginAuthentication (Employee aux, EmployeeDB *p, ClientDB *c, CarDB* car, MotocycleDB* motocycle) { //Method to authenticate employee login
 
 	std::system(SISTEMA);
 
@@ -272,7 +369,7 @@ void emploLoginAuthentication (Employee aux, EmployeeDB *p, ClientDB *c, CarDB* 
 	autentication = p->Authentication(aux);
 
 	if (autentication.getLogin() != "-1") {
-		emploMenu(autentication, p, c, car);
+		emploMenu(autentication, p, c, car, motocycle);
 	} else {
 		cout << "Wrong Username/Password" <<endl;
 		cout<<"\nPress ENTER to continue..."<<endl;
@@ -283,21 +380,14 @@ void emploLoginAuthentication (Employee aux, EmployeeDB *p, ClientDB *c, CarDB* 
 
 
 
-void employeeLogin(EmployeeDB *p, ClientDB *c, CarDB* car) { //Method to employee login 
-
-
-
-
-
-
+void employeeLogin(EmployeeDB *p, ClientDB *c, CarDB* car, MotocycleDB *motocycle) { //Method to employee login 
 
 	std::system(SISTEMA);
-
-
 	cout << "Please log in with your employee account: " <<endl;
 
 	string emploUser;
 	string emploPass;
+
 	cout << "Login: ";
 	cin >> emploUser;
 	cout << "Password: ";
@@ -307,6 +397,6 @@ void employeeLogin(EmployeeDB *p, ClientDB *c, CarDB* car) { //Method to employe
 
 
 
-	emploLoginAuthentication(aux, p, c, car);
+	emploLoginAuthentication(aux, p, c, car, motocycle);
 
 }
