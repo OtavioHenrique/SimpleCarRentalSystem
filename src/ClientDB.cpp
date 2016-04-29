@@ -37,6 +37,7 @@ int ClientDB::exclude(string cpf)
 		{
 			if(customers[i]->getCpf() == cpf )
 			{
+
 				delete( customers[i] );
 				customers[i] = NULL;
 				return 1;

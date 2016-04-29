@@ -133,19 +133,19 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c, CarDB* car) { //EMP
 				break;
 
 			case 2:
-
-
 				std::system(SISTEMA);
-
 				cout<<"customer cpf you want to delete: "<<endl;
 				cin>>cpf;
 
-				if(c->exclude(cpf))
+				client = c->find(cpf);
+
+				if(client != NULL)
+				{
+					car->releaseAll(client);
+					c->exclude(cpf);
 					cout<<"Client successfully excluded "<<endl;
+				}
 				else
-
-
-
 					cout<<"Customer does not exist"<<endl;
 
 
@@ -186,6 +186,37 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c, CarDB* car) { //EMP
 				else
 					cout<<"Customer not found"<<endl;
 				
+				cout<<"\nPress ENTER to continue..."<<endl;
+				cin.ignore();
+				cin.get(); 
+				break;
+
+			case 5:
+				std::system(SISTEMA);
+				cout<<"Car license plate: "<<endl;
+				cin>>licensePlate;
+				aux = car->release(licensePlate);
+				if(aux)
+					cout<<"Successfully relsease car"<<endl;
+				else if(aux == 0)
+					cout<<"Car not found"<<endl;
+
+				cout<<"\nPress ENTER to continue..."<<endl;
+				cin.ignore();
+				cin.get(); 
+				break;
+
+			case 6:
+				std::system(SISTEMA);
+				car->listLeased();
+				cout<<"\nPress ENTER to continue..."<<endl;
+				cin.ignore();
+				cin.get(); 
+				break;
+
+			case 7:
+				std::system(SISTEMA);
+				car->listAvailable();
 				cout<<"\nPress ENTER to continue..."<<endl;
 				cin.ignore();
 				cin.get(); 

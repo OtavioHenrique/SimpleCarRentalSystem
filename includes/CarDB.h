@@ -18,7 +18,9 @@ class CarDB
 		int newCar(string, string, string, int);
 		int rent(string, Client*); //licensePlate and Client
 		int release(string); // licensePlate
-		void list();
+		int releaseAll(Client*);
+		void listAvailable();
+		void listLeased();
 
 		~CarDB();
 	
