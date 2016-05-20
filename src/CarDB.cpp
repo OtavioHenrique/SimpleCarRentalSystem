@@ -28,6 +28,25 @@ int CarDB::newCar(string car, string color, string licensePlate, int year)
 	return 0;
 }
 
+int CarDB::deleteCar(string licensePlate)
+{
+	int i;
+	for (int i = 0; i < MAX; i++)
+	{
+		if(cars[i] != NULL)
+		{
+			if(cars[i]->getLicensePlate() == licensePlate )
+			{
+				delete(cars[i]);
+				cars[i] = NULL;
+				return 1;
+			}
+		}
+	}
+
+	return 0;
+}
+
 int CarDB::rent(string licensePlate, Client* client)
 {
 	int i;

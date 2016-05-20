@@ -17,6 +17,7 @@ class Admin : public Pessoa {
 		string getLogin ();
 		string getPassword();
 		void print();
+		~Admin();
 };
 
 #endif

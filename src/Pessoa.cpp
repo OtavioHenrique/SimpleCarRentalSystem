@@ -51,16 +51,6 @@ string Pessoa::getRG()
 	return RG;
 }
 
+Pessoa::~Pessoa(){}
+
 //others functions
-
-void Pessoa::print()
-{
-	cout<<"Nome: "<<getName()<<endl;
-	cout<<"Cpf: "<<getCpf()<<endl;
-	cout<<"RG: "<<getRG()<<endl;
-}
-
-Pessoa::~Pessoa()
-{
-	
-}

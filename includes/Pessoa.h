@@ -29,7 +29,7 @@ class Pessoa
 
 		//others functions
 
-		void print();	
+		virtual void print() = 0;	
 
 		//destructor
 		~Pessoa();
