@@ -16,6 +16,7 @@ class CarDB
 		CarDB();
 
 		int newCar(string, string, string, int);
+		int deleteCar(string);
 		int rent(string, Client*); //licensePlate and Client
 		int release(string); // licensePlate
 		int releaseAll(Client*);

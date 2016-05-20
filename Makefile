@@ -1,7 +1,7 @@
 all: SimpleCarRentalSystem
 
-SimpleCarRentalSystem: Main.o AdminDB.o Employee.o EmployeeDB.o LoginADM.o Pessoa.o Client.o ClientDB.o Car.o CarDB.o Vehicle.o Motocycle.o MotocycleDB.o
-	@g++ Main.o AdminDB.o Employee.o EmployeeDB.o LoginADM.o Pessoa.o Client.o ClientDB.o Car.o CarDB.o Vehicle.o Motocycle.o MotocycleDB.o -o Main
+SimpleCarRentalSystem: Main.o AdminDB.o Employee.o EmployeeDB.o LoginADM.o Pessoa.o Client.o ClientDB.o Car.o CarDB.o Vehicle.o Motocycle.o MotocycleDB.o Admin.o
+	@g++ Main.o AdminDB.o Employee.o EmployeeDB.o LoginADM.o Pessoa.o Client.o ClientDB.o Car.o CarDB.o Vehicle.o Motocycle.o MotocycleDB.o Admin.o -o Main
 
 	@echo Compiling..
 
@@ -56,6 +56,10 @@ Motocycle.o: src/Motocycle.cpp
 MotocycleDB.o: src/MotocycleDB.cpp
 	@g++ -c src/MotocycleDB.cpp
 	@echo Compiling MotocycleDB.cpp..
+
+Admin.o: src/Admin.cpp
+	@g++ -c src/Admin.cpp
+	@echo Compiling Admin.cpp..
 
 clean:
 	rm -rf *o SimpleCarRentalSystem

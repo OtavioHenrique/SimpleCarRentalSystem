@@ -89,17 +89,16 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c, CarDB* car, Motocyc
 		cout << "6 - List of car leased" <<endl;
 		cout << "7 - List of available cars" <<endl;
 		cout << "8 - To register new car" <<endl;
-
-
+		cout << "9 - To delete a car" <<endl;
 
 		cout<<"========== Motocycles =========="<<endl;
 
-		cout << "9 - New motocycle rent" <<endl;
-		cout << "10 - New motocycle devolution" <<endl;
-		cout << "11 - List of motocycle leased" <<endl;
-		cout << "12 - List of available motocycles" <<endl;
-		cout << "13 - To register new motocycle" <<endl;
-		cout << "14 - To delete a motocycle " <<endl<<endl;
+		cout << "10 - New motocycle rent" <<endl;
+		cout << "11 - New motocycle devolution" <<endl;
+		cout << "12 - List of motocycle leased" <<endl;
+		cout << "13 - List of available motocycles" <<endl;
+		cout << "14 - To register new motocycle" <<endl;
+		cout << "15 - To delete a motocycle " <<endl<<endl;
 
 		cout << "0 - Quit"<<endl;
 
@@ -248,6 +247,21 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c, CarDB* car, Motocyc
 
 			case 9:
 				std::system(SISTEMA);
+				cout<<"Car license plate: "<<endl;
+				cin>>licensePlate;
+
+				if( car->deleteCar(licensePlate) )
+					cout<<"Successfully deleted car"<<endl;
+				else
+					cout<<"License plate not found"<<endl;
+
+				cout<<"\nPress ENTER to continue..."<<endl;
+				cin.ignore();
+				cin.get(); 
+				break;
+
+			case 10:
+				std::system(SISTEMA);
 				cout<<"Motocycle license plate: "<<endl;
 				cin>>licensePlate;
 				cout<<"Client cpf: "<<endl;
@@ -274,7 +288,7 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c, CarDB* car, Motocyc
 				cin.get(); 
 				break;
 
-			case 10:
+			case 11:
 				std::system(SISTEMA);
 				cout<<"Motocycle license plate: "<<endl;
 				cin>>licensePlate;
@@ -289,7 +303,7 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c, CarDB* car, Motocyc
 				cin.get(); 
 				break;
 
-			case 11:
+			case 12:
 				std::system(SISTEMA);
 				motocycle->listLeased();
 				cout<<"\nPress ENTER to continue..."<<endl;
@@ -297,7 +311,7 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c, CarDB* car, Motocyc
 				cin.get(); 
 				break;
 
-			case 12:
+			case 13:
 				std::system(SISTEMA);
 				motocycle->listAvailable();
 				cout<<"\nPress ENTER to continue..."<<endl;
@@ -305,7 +319,7 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c, CarDB* car, Motocyc
 				cin.get(); 
 				break;
 
-			case 13:
+			case 14:
 				std::system(SISTEMA);
 				cout<<"Motocycle name: "<<endl;
 				cin>>nameOfmotocycle;
@@ -326,7 +340,7 @@ void emploMenu (Employee logged, EmployeeDB *p, ClientDB *c, CarDB* car, Motocyc
 				cin.get(); 
 				break;
 
-			case 14:
+			case 15:
 				std::system(SISTEMA);
 				cout<<"Motocycle license plate: "<<endl;
 				cin>>licensePlate;
@@ -399,4 +413,9 @@ void employeeLogin(EmployeeDB *p, ClientDB *c, CarDB* car, MotocycleDB *motocycl
 
 	emploLoginAuthentication(aux, p, c, car, motocycle);
 
+}
+
+Employee::~Employee()
+{
+	
 }

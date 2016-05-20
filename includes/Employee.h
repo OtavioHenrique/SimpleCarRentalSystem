@@ -21,6 +21,7 @@ class Employee : public Pessoa {
 		string getPassword();
 		
 		void print();
+		~Employee();
 };
 
 #endif
