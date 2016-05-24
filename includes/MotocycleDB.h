@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include "Motocycle.h"
+#define MAX 10
 
 #ifndef MotocycleDB_h
 #define MotocycleDB_h
@@ -10,7 +11,7 @@ using namespace std;
 class MotocycleDB
 {
 	private:
-		Motocycle* motocycles[10];
+		Motocycle* motocycles[MAX];
 
 	public:
 		MotocycleDB();

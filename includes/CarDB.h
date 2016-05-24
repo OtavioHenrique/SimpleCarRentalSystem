@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include "Car.h"
+#define MAX 10
 
 #ifndef CarDB_h
 #define CarDB_h
@@ -10,7 +11,7 @@ using namespace std;
 class CarDB
 {
 	private:
-		Car* cars[10];
+		Car* cars[MAX];
 
 	public:
 		CarDB();
